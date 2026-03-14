@@ -34,7 +34,3 @@ python main.py
 - `graph_smooth_*.png` — для функции eˣ
 - `graph_rough_*.png` — для функции |x−0.5|
 - `convergence_plot.png` — сходимость методов
-
-## Автор
-
-[ФИО], группа [номер], 2024
