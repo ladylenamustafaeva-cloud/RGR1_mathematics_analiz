@@ -3,7 +3,7 @@ import numpy as np
 from methods import rectangles, trapezoid, simpson, three_eighths, adaptive_integration
 from plots import plot_error_vs_epsilon, plot_n_vs_epsilon
 
-# ===== 1. Задаём функцию и точное значение интеграла =====
+#1. Задаём функцию и точное значение интеграла
 # Пример 1: гладкая функция
 def f_smooth(x):
     return np.exp(x)  # ∫₀¹ eˣ dx = e - 1 ≈ 1.71828
@@ -17,7 +17,7 @@ def f_rough(x):
 
 exact_rough = 0.25
 
-# ===== 2. Словарь методов =====
+#2. Словарь методов
 methods = {
     'Прямоугольники': rectangles,
     'Трапеции': trapezoid,
@@ -25,21 +25,18 @@ methods = {
     '3/8': three_eighths
 }
 
-# ===== 3. Набор точностей для исследования =====
+#3. Набор точностей для исследования
 epsilons = [1e-1, 1e-2, 1e-3, 1e-4, 1e-5]
 
-# ===== 4. Исследование на гладкой функции =====
-print("🔍 Исследование: гладкая функция f(x)=eˣ")
+#4. Исследование на гладкой функции
 plot_error_vs_epsilon(methods, f_smooth, a, b, exact_smooth, epsilons, 'graph_smooth_error.png')
 plot_n_vs_epsilon(methods, f_smooth, a, b, epsilons, 'graph_smooth_n.png')
 
-# ===== 5. Исследование на негладкой функции =====
-print("🔍 Исследование: негладкая функция f(x)=|x-0.5|")
+#5. Исследование на негладкой функции
 plot_error_vs_epsilon(methods, f_rough, a, b, exact_rough, epsilons, 'graph_rough_error.png')
 plot_n_vs_epsilon(methods, f_rough, a, b, epsilons, 'graph_rough_n.png')
 
-# ===== 6. Печать таблицы результатов (для отчёта) =====
-print("\n📊 Таблица результатов (гладкая функция):")
+#6. Таблица результатов
 print(f"{'Метод':<15} {'ε':<10} {'N':<8} {'Погрешность':<15}")
 print("-" * 50)
 for name, method in methods.items():
@@ -48,8 +45,7 @@ for name, method in methods.items():
         error = abs(result - exact_smooth)
         print(f"{name:<15} {eps:<10.1e} {n:<8} {error:<15.3e}")
 
-# ===== 7. ГРАФИК СХОДИМОСТИ (НОВЫЙ БЛОК!) =====
-print("\n📈 Построение графика сходимости...")
+#7. ГРАФИК СХОДИМОСТИ
 
 import matplotlib.pyplot as plt
 
@@ -82,6 +78,5 @@ plt.grid(True, which='both', alpha=0.3)
 plt.legend()
 plt.savefig('convergence_plot.png', dpi=300, bbox_inches='tight')
 plt.close()
-print("✓ График сходимости сохранён: convergence_plot.png")
 
-print("\n✅ Все 5 графиков сохранены в папке проекта!")
+print("Все 5 графиков сохранены в папке проекта!")
