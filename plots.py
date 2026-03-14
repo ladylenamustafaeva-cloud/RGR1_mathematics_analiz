@@ -33,7 +33,7 @@ def plot_error_vs_epsilon(methods_dict, f, a, b, exact_value, epsilons, filename
     plt.legend()
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
-    print(f"✓ График сохранён: {filename}")
+    print(f"График сохранён: {filename}")
 
 def plot_n_vs_epsilon(methods_dict, f, a, b, epsilons, filename):
     """График: сколько вычислений нужно для заданной точности"""
@@ -53,4 +53,4 @@ def plot_n_vs_epsilon(methods_dict, f, a, b, epsilons, filename):
     plt.legend()
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
-    print(f"✓ График сохранён: {filename}")
+    print(f"График сохранён: {filename}")
